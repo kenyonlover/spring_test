@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="compactDisc" class="com.springtrain.soundsystem.impl.BlankDisc">
+        <constructor-arg value="Sgt. Papper's Lonely Hearts Club Band"></constructor-arg>
+        <constructor-arg value="The Beatles"></constructor-arg>
+        <constructor-arg>
+            <list>
+                <value>Lucy in the sky with Diamonds</value>
+                <value>Getting Better</value>
+                <value>Fixing a Hole</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="cdPlayer" class="com.springtrain.soundsystem.impl.CDPlayer">
+        <!--<constructor-arg ref="compactDisc"></constructor-arg>--><!--适用于构造器注入-->
+        <property name="cd" ref="compactDisc"></property><!--适用于Setter方法属性注入-->
+    </bean>
+</beans>
